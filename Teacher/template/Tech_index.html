@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/teachers.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+     <style>
+        .resp-nav{
+            display: none;
+        }
+        .sideNav .active{
+            color: rgb(10, 250, 10);
+        }
+        .sideNav .active:hover{
+            color: rgb(10, 250, 10) !important;
+        }
+        @media only screen and (max-width: 900px) {
+        .resp-nav {
+            display: inline;
+            }
+        .side-bar{
+            display: none;
+        }
+        .side-contant {
+            margin-left: 0;
+            width: 100%;
+            padding: 0;
+        }
+        .nav-contain {
+            margin-left: 0;
+            padding-left: 0;
+            width: 100%;
+        }
+        .contains {
+            margin-left: 0;
+            padding: 0 20px; 
+        }
+        .nav-resp{
+            justify-content: space-between !important;
+        }
+        }
+    </style> 
+
+</head>
+
+<body>
+
+   <div class="row m-0 p-0">
+    <div class="side-bar col-md-2 mb-0 text-white pe-2 pt-2 ps-0">
+        <img src="{% static 'img/SRMS.png' %}" class="ms-2 mb-3" height="40vh" alt="">
+        
+        <div class="sideNav d-flex flex-column justify-content-between">
+            <div>
+                {% url 'tech_home' as thome_url %}
+                <a href="{% url 'tech_home' %}" class="text-decoration-none text-white ">
+                    <div class="bar-text {% if request.path == thome_url %} active {% endif %} fs-5 p-2 ms-2"> 
+                        Dashboard
+                    </div>
+                </a>
+                {% url 'tech_create' as tcreate_url %}
+                <a href="{% url 'tech_create' %}" class="text-decoration-none text-white ">
+                    <div class="bar-text {% if request.path == tcreate_url %} active {% endif %} fs-5 p-2 ms-2">
+                         Add Student 
+                    </div>
+                </a>
+                {% url 'tech_marks' as tmarks_url %}
+                <a href="{% url 'tech_marks' %}" class="text-decoration-none text-white ">
+                    <div class="bar-text {% if request.path == tmarks_url %} active {% endif %} fs-5 p-2 ms-2"> 
+                        Student Marks  
+                    </div>
+                </a>
+                {% url 'tech_std' as tstd_url %}
+                <a href="{% url 'tech_std' %}" class="text-decoration-none text-white ">
+                    <div class="bar-text {% if request.path == tstd_url %} active {% endif %} fs-5 p-2 ms-2"> 
+                        Students  
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="{% url 'user_logout' %}" class="text-decoration-none text-white">
+                    <div class="bar-text fs-5 p-2 ms-2">
+                         Logout 
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="side-contant col-md-10 p-0 ">
+        <div class="row m-0 p-0">
+            <div class="nav-contain col-md-12 me-0 pe-0 ">
+                <nav class="navbar navbar-expand-lg bg-black">
+
+
+                    <div class="nav-resp container-fluid con d-flex flex-row justify-content-end align-items-center">
+                    <div class="resp-nav navbar-brand ">
+                        <ul class="m-0">
+                            <li class="nav-item dropdown text-white" style="list-style: none;">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  SRMS
+                                </a>
+                                <ul class="dropdown-menu m-0 bg-dark ">
+                                  <li><a class="dropdown-item text-white bg-dark" href="{% url 'tech_home' %}">DashBoard</a></li>
+                                  <li><a class="dropdown-item text-white bg-dark" href="{% url 'tech_create' %}">Create</a></li>
+                                  <li><a class="dropdown-item text-white bg-dark" href="{% url 'tech_marks' %}">Marks</a></li>
+                                  <li><a class="dropdown-item text-white bg-dark" href="{% url 'tech_std' %}">Students</a></li>
+                                  <li><hr class="dropdown-divider"></li>
+                                  <li><a class="dropdown-item text-white bg-dark" href="{% url 'user_logout' %}">Logout</a></li>
+                                </ul>
+                              </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a class="navbar-brand text-end text-white m" href="{% url 'tech_home' %}">{{data.name}}</a>
+                        <img src="{% static 'img/anime-logo.png' %}" height="40vh" alt="logo">
+                    </div>
+                            
+                        
+                      
+                    </div>
+                    
+                    
+                  </nav>
+            </div>
+        </div>
+        <div class="row m-0">
+            <div class="contains col-md-12 m-0 mt-5">
+                {% block 'main' %}
+
+                {% endblock 'main' %}
+                    
+            </div>
+        </div>
+    </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>

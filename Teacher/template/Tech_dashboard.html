@@ -1,0 +1,35 @@
+{% extends 'Tech_index.html' %}
+{% block 'main' %}
+{% load static %}
+
+<div class="container">
+    <div class="row my-5">
+        <div class="col-md-12 rounded mx-auto py-3 ">
+            <div class="row">
+                <div class="col-md-12 text-center"><h2 class="text-primary">List Of All Students</h2></div>
+            </div>
+            <table class="tech-table">
+                <thead>
+                    <tr>
+                        <th>Std Id</th>
+                        <th>Full Name</th>
+                        <th>Div - Class</th>
+                        <th>Class Teacher</th>
+                    </tr>
+                </thead>
+                {% for s in std %}
+                <tbody>
+                    <tr>
+                        <td>{{s.Std_Id}}</td>
+                        <td>{{s.Full_Name}}</td>
+                        <td>{{s.Div}}-{{s.Std}}</td>
+                        <td>{{s.tech_name.name}}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

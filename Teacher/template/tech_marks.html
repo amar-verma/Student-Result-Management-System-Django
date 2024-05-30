@@ -1,0 +1,66 @@
+{% extends 'Tech_index.html' %}
+{% block 'main' %}
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 rounded py-3 px-2 mx-auto my-3">
+            <div class="row">
+                <div class="col-md-2 mx-auto"><h3 class="text-primary">Marks</h3></div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12 fs-5">
+                    {% if message %}
+                    <div class="alert alert-danger">{{message}}</div>
+                    {% endif %}
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row my-2">
+                            <div class="col-md-2"> <strong>Student Id</strong> </div>
+                            <div class="col-md-3"><input type="text" class="form-control" name="std_idno"></div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-md-3"> <strong>Total Score</strong> </div>
+                            <div class="col-md-3"><input type="number" class="form-control" value="100" name="tar"></div>
+                            <div class="col-md-3"> <strong>Passing Marks</strong> </div>
+                            <div class="col-md-3"><input type="number" class="form-control" value="35" name="scr"></div>
+                        </div>
+                        <hr>
+                        <h4 class="mb-3 ">Student Marks</h4>
+                        <div class="row my-2">
+                            <div class="col-md-2"><label for="" class="form-label">English: </label></div>
+                            <div class="col-md-2"><input type="number" class="form-control" name="english"></div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-md-2"><label for="" class="form-label">Hindi: </label></div>
+                            <div class="col-md-2"><input type="number" class="form-control" name="hindi"></div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-md-2"><label for="" class="form-label">Marathi: </label></div>
+                            <div class="col-md-2"><input type="number" class="form-control" name="marathi"></div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-md-2"><label for="" class="form-label">Science: </label></div>
+                            <div class="col-md-2"><input type="number" class="form-control" name="science"></div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-md-3"><label for="" class="form-label">Mathematics: </label></div>
+                            <div class="col-md-2"><input type="number" class="form-control" name="maths"></div>
+                        </div>
+                        <div class="row my-2">
+                            <div class="col-md-3"><label for="" class="form-label">Social Science: </label></div>
+                            <div class="col-md-2"><input type="number" class="form-control" name="social"></div>
+                        </div>
+                        <div class="text-end"><button class="btn btn-primary my-2">Submit</button></div>
+                        
+                    </form>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
