@@ -1,0 +1,128 @@
+{% extends 'nav.html' %}
+{% block 'contain' %}
+{% load static %}
+
+
+<div class="row m-0">
+  <div class="col-md-12 p-0" style="max-height: 70vh;">
+    <img src="{% static 'img/pic7.png' %}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+  </div>
+</div>
+
+
+<div class="containers p-3 mt-3">
+  <div class="row m-0">
+      <div class="col-md-5" style="max-height: 60vh;"><img src="{% static 'img/srms_bg.png' %}" alt="" style="width: 100%; height: 100%; object-fit: contain;"></div>
+      <div class="col-md-7">
+        <header>
+          <h1>SRMS - Student Result Management System</h1>
+      </header>
+      <section>
+        <section class="intro">
+          <p>Your ultimate solution for managing student records and academic results efficiently and effectively.</p>
+      </section>
+        <p>The Student Result Management System (SRMS) is a Django-based web project designed to manage student data records, including academic results and personal information. This system allows teachers (users) to create student profiles and update their marks. It is particularly useful for assigning marks for students in grades 1 through 10 across subjects such as English, Hindi, Marathi, Science, Mathematics, and Social Science.</p>
+        <h2>Key Features: </h2>
+        <ul>
+          <li>1. Teacher</li>
+          <li>2. Student</li>
+        </ul>
+    </section>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <section class="benefits">
+        <h2>Benefits of Using SRMS</h2>
+        <ul>
+            <li><strong>Efficiency:</strong> Streamlines the process of recording and managing student data, saving time for teachers and administrators.</li>
+            <li><strong>Accuracy:</strong> Reduces errors in data entry and marks allocation with automated processes and validations.</li>
+            <li><strong>Accessibility:</strong> Provides easy access to student information and academic results for teachers and students, anytime and anywhere.</li>
+            <li><strong>Security:</strong> Ensures the privacy and security of student data with secure login and data management protocols.</li>
+            <li><strong>Comprehensive Reporting:</strong> Offers detailed reports and graphical representations of student performance for better insights and decision-making.</li>
+        </ul>
+    </section>
+    </div>
+    <div class="col-md-4 my-0" style="max-height: 50vh;">
+      <img src="{% static 'img/illu1.svg' %}" alt="" width="100%" height="80%" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4" style="max-height: 50vh;">
+      <img src="{% static 'img/illu2.svg' %}" alt="" width="100%" height="80%" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+    <div class="col-md-8">
+      <section class="how-it-works">
+        <h2>How It Works</h2>
+        <ul>
+            <li><strong>Simple Registration:</strong> Teachers can sign up quickly with basic information, creating a unique account for secure access.</li>
+            <li><strong>Student Profile Management:</strong> Easily create and manage student profiles with essential academic and personal details.</li>
+            <li><strong>Marks Entry:</strong> Allocate and update marks for various subjects effortlessly, ensuring up-to-date records.</li>
+            <li><strong>Student Access:</strong> Students can log in to view their profiles, update personal information, and check their academic results.</li>
+            <li><strong>Intuitive Interface:</strong> User-friendly interface designed to provide a seamless experience for both teachers and students.</li>
+        </ul>
+    </section>
+    </div>
+  </div>
+
+  
+
+</div>
+<div class="last bg-dark m-0 pt-3 text-white">
+  <footer class="container ">
+    <div class="row m-0">
+        <div class="col-md-4">
+            <h5>Contact Us</h5>
+            <hr class="bg-white">
+            <p><i class="fas fa-envelope"></i> Email: info@srms.com</p>
+            <p><i class="fas fa-phone"></i> Phone: +123 456 7890</p>
+        </div>
+        <div class="col-md-4">
+            <h5>Quick Links</h5>
+            <hr class="bg-white">
+            <p><a href="#"><i class="fas fa-home"></i> Home</a></p>
+            <p><a href="#"><i class="fas fa-info-circle"></i> About Us</a></p>
+            <p><a href="#"><i class="fas fa-book"></i> Features</a></p>
+        </div>
+        <div class="col-md-4">
+            <h5>Follow Us</h5>
+            <hr class="bg-white">
+            <p><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></p>
+            <p><a href="#"><i class="fab fa-twitter"></i> Twitter</a></p>
+            <p><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></p>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <p>&copy; 2024 SRMS - Student Result Management System. All rights reserved.</p>
+      </div>
+    </div>
+</footer>
+</div>
+
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+
+{% endblock %}

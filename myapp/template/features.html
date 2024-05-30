@@ -1,0 +1,73 @@
+{% extends 'nav.html' %}
+{% block 'contain' %}
+{% load static %}
+
+<header style="background-color: #333; color: #fff; text-align: center; padding: 20px 0;">
+    <h1>Student Result Management System (SRMS)</h1>
+</header>
+
+<div class="row m-0" >
+    <div class="col-md-12">
+        <h3>Project Overview:</h3>
+        <p>The Student Result Management System (SRMS) is a comprehensive web-based application developed using Django framework. It aims to streamline the management of student records and academic results for educational institutions. SRMS caters to both teachers and students, providing distinct functionalities tailored to their respective roles.</p>
+    </div>
+</div>
+<div class="row m-0">
+    <div class="col-md-12 ">
+        <section>
+            
+            <h3>1. Teacher Functionality:</h3>
+        <ul>
+            <li>
+                <strong>Teacher Signup:</strong> Teachers can easily create accounts by providing essential details such as username, password, name, standard (std), division (div), and board code. Unique usernames ensure individual identification.
+            </li>
+            <li>
+                <strong>Teacher Login:</strong> Upon successful authentication, teachers gain access to a variety of features:
+                <ul>
+                    <li><strong>Dashboard:</strong> A centralized platform displaying student data, including names, IDs, class, division, and the teacher's name. While teachers can view this information, they cannot make modifications.</li>
+                    <li><strong>Add Student:</strong> Teachers have the ability to create student profiles effortlessly. These profiles inherit relevant details such as division, standard, and board code from the teacher's account, streamlining the record-keeping process.</li>
+                    <li><strong>Marks Allocation:</strong> Teachers can efficiently allocate marks to the students they've created, facilitating timely assessment and feedback.</li>
+                    <li><strong>Student Management:</strong> A comprehensive record of all students created by the logged-in teacher is available. This feature includes options to view whether a student's result has been allocated, edit student details, and delete student records as needed.</li>
+                    <li><strong>Logout:</strong> Teachers can securely end their session by clicking the logout button, ensuring data privacy and system security.</li>
+                    <li><strong>Navigation Bar:</strong> The teacher's name is prominently displayed at the top of the navigation bar, providing a clear indication of the current logged-in user.</li>
+                </ul>
+            </li>
+        </ul>
+        </section>
+    </div>
+</div>
+
+<div class="row m-0">
+    <div class="col-md-12">
+        <section>
+            <h3>2. Student Functionality:</h3>
+        <ul>
+            <li>
+                <strong>Login:</strong> Students are required to log in using their unique student ID and password. Once authenticated, students gain access to personalized features and data.
+            </li>
+            <li>
+                <strong>Dashboard:</strong> An intuitive dashboard offers students an overview of their academic status. Vital information such as ID, name, class teacher, completeness of personal details, and marks allocation status are readily available.
+            </li>
+            <li>
+                <strong>Details Editing:</strong> Students can effortlessly update their personal information through the designated edit feature. Mandatory fields ensure data accuracy, and changes can be saved with ease.
+            </li>
+            <li>
+                <strong>Marks Viewing:</strong> This feature enables students to view their recorded marks across various subjects. A user-friendly table format displays subject names, codes, obtained marks, total marks, and pass/fail status. Additionally, a graphical representation enhances data visualization and comprehension.
+            </li>
+            <li>
+                <strong>Accessing Marks:</strong> Students can conveniently access their marks through the "Result" tab on the homepage. By entering their ID and mother's number, students can retrieve their marks, provided the data is available in the system.
+            </li>
+        </ul>
+        </section>
+    </div>
+</div>
+
+<div class="row m-0">
+    <div class="col-md-6 mx-auto">
+        <footer>
+            <p>&copy; 2024 SRMS - Student Result Management System. All rights reserved.</p>
+        </footer>
+    </div>
+</div>
+
+{% endblock %}

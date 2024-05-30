@@ -1,0 +1,126 @@
+{% extends 'nav.html' %}
+{% block 'contain' %}
+{% load static %}  
+<div class="container ">
+    <div class="row">
+        <div class="col-md-10 shadow rounded mx-auto mt-3 mb-3 bg-white">
+            <div class="row marks-detail">
+
+                <div class="col-md-12 my-3">
+                    <div>Id: <span>{{student.Std_Id}}</span></div>
+                    <div>Name: <span>{{student.Full_Name}}</span></div>
+                    <div>Father name: <span>{{student.Father}}</span></div>
+                    <div>Mother name: <span>{{student.Mother}}</span></div>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Code</th>
+                                <th>Marks Obtained</th>
+                                <th>Total Marks</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mathematics</td>
+                                <td>MTH101</td>
+                                <td>{{m.Mathematics}}</td>
+                                <td>{{m.target}}</td>
+                                <td>
+                                    {% if m.Mathematics < m.score %}
+                                    Fail
+                                    {% else %}
+                                    Pass
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Science</td>
+                                <td>SCI201</td>
+                                <td>{{m.Science}}</td>
+                                <td>{{m.target}}</td>
+                                <td>
+                                    {% if m.Science < m.score %}
+                                    Fail
+                                    {% else %}
+                                    Pass
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>English</td>
+                                <td>ENG301</td>
+                                <td>{{m.English}}</td>
+                                <td>{{m.target}}</td>
+                                <td>
+                                    {% if m.English < m.score %}
+                                    Fail
+                                    {% else %}
+                                    Pass
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Marathi</td>
+                                <td>MAR401</td>
+                                <td>{{m.Marathi}}</td>
+                                <td>{{m.target}}</td>
+                                <td>
+                                    {% if m.Marathi < m.score %}
+                                    Fail
+                                    {% else %}
+                                    Pass
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Hindi</td>
+                                <td>HIN501</td>
+                                <td>{{m.Hindi}}</td>
+                                <td>{{m.target}}</td>
+                                <td>
+                                    {% if m.Hindi < m.score %}
+                                    Fail
+                                    {% else %}
+                                    Pass
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Social Science</td>
+                                <td>SOC601</td>
+                                <td>{{m.SocialScience}}</td>
+                                <td>{{m.target}}</td>
+                                <td>
+                                    {% if m.SocialScience < m.score %}
+                                    Fail
+                                    {% else %}
+                                    Pass
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-10 marks-status">
+                    <div>Total marks obtained: <span>{{sum}}</span></div>
+                    <div>Total subjects marks: <span>{{total}}</span></div>
+                    <div>Status: <span>{{status}}</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+</div>
+
+
+{% endblock %}
