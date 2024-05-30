@@ -1,0 +1,31 @@
+table{
+    width: 100%;
+}
+thead{
+    border-bottom: 1px solid black;
+}
+thead th {
+    padding-top: 5PX;
+    padding-bottom: 10px;
+}
+
+/* navBar */
+
+
+/* tech_login_signup */
+     .bg-body{
+      background: url('../img/simplebg.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+  }
+
+/* std_login */
+  .background-body{
+            background: url('../img/bg3.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }

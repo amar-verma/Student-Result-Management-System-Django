@@ -1,0 +1,112 @@
+
+
+/* std_index.html */
+
+.side-bar{
+    height: 100vh;
+    background-color: rgb(37, 32, 32);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.side-bar .bar-text:hover{
+    border-style: solid;
+    border-color: white;
+    border-left: 0px;
+    border-right: 0px;
+    border-width: 1px;
+}
+.side-bar a:hover .bar-text{
+    color: rgb(207, 195, 195);
+}
+.sideNav{
+    height: 90%;
+}
+.sideNav .active{
+    color: rgb(10, 250, 10);
+}
+.side-contant{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.nav-contain{
+    width: 85%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 950;
+}
+.contains {
+    /* width: 85%; */
+    margin-top: 50px;
+    margin-left: 20px;
+    z-index: 900;
+}
+
+
+
+/* std_dashboard.html */
+
+.dash-row{
+    font-size: 1.5rem;
+}
+.dash-row span{
+    font-weight: 500;
+}
+.dash-row .dash-card1{
+    background: linear-gradient(45deg, orange, red);
+}
+.dash-row .dash-card2{
+    background: linear-gradient(45deg, rgb(0, 255, 13), rgb(85, 192, 64));
+}
+.dash-row .dash-card3{
+    background: linear-gradient(45deg, rgb(61, 181, 197), rgb(47, 0, 255));
+}
+.dash-row .dash-card4{
+    background: linear-gradient(45deg, rgb(217, 255, 49), rgb(226, 255, 63));
+}
+
+
+
+/* std_details.html */
+
+form .imp::after {
+    content: '*';
+    color: red;
+
+}
+
+
+/* std_marks.html  & resultmarks.html*/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.marks-detail, .marks-status{
+    font-size: 1.3rem;
+}
+.marks-detail span, .marks-status span{
+    font-weight: 500;
+}
+
+
+/* std_login.html & std_result.html*/
+
+.corner-detail{
+    opacity: 0.4;
+}
+
+
+
