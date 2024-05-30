@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marksheet</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 5px;
+      }
+      th {
+        background-color: #f2f2a1;
+      }
+      .total {
+        font-weight: bold;
+      }
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .info-table td {
+        border: 1px solid #000;
+        padding: 5px;
+      }
+      .highlight {
+        background-color: #f2f2a1;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+      }
+      .row1 {
+        color: red;
+        margin-top: 5px;
+        margin-bottom: 0;
+        text-align: center;
+      }
+      .row2 {
+        margin-top: 0;
+        margin-bottom: 7px;
+        text-align: center;
+      }
+      .row4 {
+        display: flex;
+        justify-content: space-between;
+      }
+      .row5 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        text-align: center;
+      }
+      .row6 {
+        text-align: center;
+        margin-bottom: 7px;
+      }
+      .row8 {
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .row9 {
+        margin-bottom: 8px;
+      }
+      .row10 {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="row">
+      <div class="col">
+        <div class="row1">
+          <h1>St. Mary's High School</h1>
+        </div>
+        <div class="row2">
+          St. Mary's High School 123 Highstreet Lane, Fictional City,
+          Downtown-568965, Countryville, CV 12345.
+        </div>
+        <div class="row4">
+          <div class="col4_1">
+            <table class="info-table">
+              <tr>
+                <td class="highlight">Name</td>
+                <td>{{student.Full_Name}}</td>
+              </tr>
+              <tr>
+                <td class="highlight">Id</td>
+                <td>{{student.Std_Id}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col4_2 d-flex justify-content-end">
+            <table class="info-table">
+              <tr>
+                <td class="highlight">Fathers Name</td>
+                <td>{{student.Father}}</td>
+              </tr>
+              <tr>
+                <td class="highlight">Mothers Name</td>
+                <td>{{student.Mother}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="row5">
+          <table>
+            <tr>
+              <th>Subject</th>
+              <th>Marks Obtained</th>
+              <th>Total Marks</th>
+            </tr>
+            <tr>
+              <td>English</td>
+              <td>{{mark.English}}</td>
+              <td>{{mark.target}}</td>
+            </tr>
+            <tr>
+              <td>Hindi</td>
+              <td>{{mark.Hindi}}</td>
+              <td>{{mark.target}}</td>
+            </tr>
+            <tr>
+              <td>Marathi</td>
+              <td>{{mark.Marathi}}</td>
+              <td>{{mark.target}}</td>
+            </tr>
+            <tr>
+              <td>Science</td>
+              <td>{{mark.Science}}</td>
+              <td>{{mark.target}}</td>
+            </tr>
+            <tr>
+              <td>Mathematics</td>
+              <td>{{mark.Mathematics}}</td>
+              <td>{{mark.target}}</td>
+            </tr>
+            <tr>
+              <td>Social Science</td>
+              <td>{{mark.SocialScience}}</td>
+              <td>{{mark.target}}</td>
+            </tr>
+            <tr class="total">
+              <td>Total</td>
+              <td colspan="2">{{sum}}/{{total}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="row6">
+          if student fail on any subject, then student will consider as a fail
+          but can retake exam
+        </div>
+        <div class="row8">
+          <div class="col8_1">
+            <table class="info-table">
+              <tr>
+                <td class="highlight">Teacher Name</td>
+                <td>{{student.tech_name}}</td>
+              </tr>
+              <tr>
+                <td class="highlight">Principal</td>
+                <td>rjkprincipal</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col8_2">
+            <table class="info-table">
+              <tr>
+                <td class="highlight">Percentages</td>
+                <td>{{per}}%</td>
+              </tr>
+              <tr>
+                <td class="highlight">Total Marks</td>
+                <td>{{sum}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="row9">
+          <div class="row">
+            <div class="col-md-3 highlight p-1">result</div>
+            <div class="col10">
+              {% if status == 'Pass' %}
+               Congratulations! You have passed with a
+              total of {{sum}} out of {{per}} marks 
+              {% else %} 
+              Unfortunately,
+              you have failed Don't be discouraged improve and try again 
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="row10">
+          <div class="col-md-3 d-flex justify-content-start text-start">
+            {{student.Residental_Add}}
+          </div>
+          <div class="col-md-9 d-flex justify-content-end">
+            <p>
+              <img
+                src="{% static 'img/stamps.png' %}"
+                width="100%"
+                height="220px"
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

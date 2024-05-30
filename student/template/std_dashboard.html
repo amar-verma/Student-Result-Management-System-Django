@@ -1,0 +1,72 @@
+{% extends 'std_index.html' %}
+{% block 'main' %}
+{% load static %}
+
+<style>
+    .std-dashrow{
+        margin-left: 15px;
+    }
+    .dash-row .dash-card5{
+        background: linear-gradient(45deg, rgb(243, 88, 217), rgb(243, 0, 142));
+    }
+    @media only screen and (max-width: 900px){
+        .std-dashrow{
+        margin-left: 0;
+    }
+    .dash-card{
+        margin-left: 0 !important;
+    }
+    }
+</style>
+<div class="containers">
+    <div class="row dash-row m-0 ">
+        <div class="col-md-10 mx-auto">
+            <div class="row std-dashrow">
+                <div class="dash-card1 dash-card col-md-3 shadow rounded p-2 mx-3 my-3">
+                    <span>{{student.Std_Id}}</span>
+                    <hr class="mt-0">
+                    <span>{{student.Full_Name}}</span>
+                </div>
+        
+                <div class="dash-card2 dash-card col-md-3 shadow rounded p-2 mx-3 my-3">
+                    <span>Teacher</span>
+                    <hr class="mt-0">
+                    <span>{{student.tech_name.name}}</span>
+                </div>
+        
+                <div class="dash-card3 dash-card col-md-3 shadow rounded p-2 mx-3 my-3">
+                    Student <span>Details</span>
+                    <hr class="mt-0">
+                    <span>{{message}}</span>
+                </div>
+        
+                <div class="dash-card4 dash-card col-md-3 shadow rounded p-2 mx-3 my-3">
+                    Exam <span>Result</span>
+                    <hr class="mt-0">
+                    <span>
+                        {% if marks_exist %}
+                        <p>Available.</p>
+                        {% else %}
+                        <p>Not available yet.</p>
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="dash-card5 dash-card col-md-3 shadow rounded p-2 mx-3 my-3">
+                    Student <span>Fess</span>
+                    <hr class="mt-0">
+                    <span>
+                        {% if student.Fee_Status %}
+                        <p>Paid</p>
+                        {% else %}
+                        <p>Unpaid</p>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

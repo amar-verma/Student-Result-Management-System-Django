@@ -1,0 +1,152 @@
+{% extends 'std_index.html' %}
+{% block 'main' %}
+{% load static %}
+
+<style>
+    .std-detail-css{
+        margin-left: 32px;
+    }
+    @media only screen and (max-width: 900px){
+        .std-detail-css{
+            margin-left: 0;
+        }
+    }
+</style>
+<div class="container">
+    <div class="row my-2 std-detail-css">
+        <div class="col-md-11 rounded bg-white text-black p-2">
+            <div class="row">
+                <div class="col-md-12 text-center mb-3">
+                    <h2>Student Details</h2>
+                </div>
+                {% if error %}
+                <div class="alert alert-danger">{{error}}</div>
+                {% endif %}
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <div class="col-md-2">
+                        <label for="std_name" class="form-label imp" >Full Name:</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" name="std_name" value="{{student.Full_Name}}" class="form-control" placeholder="Enter your name" >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4"><label for="std_rollno" class="form-label imp" >Roll No:</label></div>
+                            <div class="col-md-8"><input name="std_rollno" type="number" value="{{student.Roll_No}}" class="form-control" readonly></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4 ps-3"><label for="std_nationality" class="form-label imp" >Nationality:</label></div>
+                            <div class="col-md-8"><input type="text" name="std_nationality" value="{{student.Nationality}}" class="form-control" placeholder="---" readonly></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="row mb-3">
+                            <div class="col-md-4"><label for="std_std" class="form-label imp" >Std:</label></div>
+                            <div class="col-md-8"><input name="std_std" type="number" value="{{student.Std}}" class="form-control" readonly></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row ">
+                            <div class="col-md-4 ps-3"><label for="std_div" class="form-label imp" >Div:</label></div>
+                            <div class="col-md-8"><input name="std_div" type="text" value="{{student.Div}}" class="form-control" readonly></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-6">
+                        <div class="row mb-3">
+                            <div class="col-md-4 "><label for="std_email" class="form-label " >Email:</label></div>
+                            <div class="col-md-8"><input name="std_email" value="{{student.Email}}" type="email" class="form-control" placeholder="abc@gmail.com" ></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row mb-3">
+                            <div class="col-md-4 ps-3"><label for="std_category" class="form-label" >Category:</label></div>
+                            <div class="col-md-8"><input name="std_category" type="text" value="{{student.Category}}" class="form-control" placeholder="---" readonly></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-2">
+                        <label for="std_father" class="form-label imp" >Father Name:</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="std_father" type="text" value="{{student.Father}}" class="form-control" >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-2 ">
+                        <label for="std_mother" class="form-label imp" >Mother Name:</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="std_mother" type="text" value="{{student.Mother}}" class="form-control" >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="row mb-3">
+                            <div class="col-md-4"><label for="std_no1" class="form-label imp" >Father No. :</label></div>
+                            <div class="col-md-8"><input name="std_no1" type="number" value="{{student.Father_No}}" class="form-control" placeholder="Mobile no." ></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4 ps-3"><label for="std_no2" class="form-label" >Mother No. :</label></div>
+                            <div class="col-md-8"><input name="std_no2" type="number" value="{{student.Mother_No}}" class="form-control" placeholder="Phone no."  ></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="row mb-3">
+                            <div class="col-md-4"><label for="std_job1" class="form-label" >Father Job :</label></div>
+                            <div class="col-md-8"><input name="std_job1" type="text" value="{{student.Father_Job}}" class="form-control"  ></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-4 ps-3"><label for="std_job2" class="form-label" >Mother Job :</label></div>
+                            <div class="col-md-8"><input name="std_job2" type="text" value="{{student.Mother_Job}}" class="form-control" ></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-2">
+                        <label for="std_board" class="form-label imp" >Board Name:</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="std_board" type="text" class="form-control" value="{{student.Board_Code}}" placeholder="---"  readonly>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="res_address" class="form-label me-5 imp" >Residental Address</label>
+                        <textarea name="res_address" class="form-control rounded" >{{student.Residental_Add | default:''}}</textarea>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="par-address" class="form-label me-5" >Parmanenet Address</label>
+                        <textarea name="par_address" class="form-control rounded" >{{student.Parmanenet_Add | default:''}}</textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                
+
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,183 @@
+{% extends 'std_index.html' %}
+{% block 'main' %}
+{% load static %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    @media only screen and (max-width: 900px){
+    .gmark{
+        margin-right: 0 !important;
+    }
+    }
+    
+</style>
+{% if marks_exist %}
+
+<div class="container">
+
+    <div class="row marks-detail">
+        <div class="col-md-12 my-3">
+            <div>Name: <span>{{student.Full_Name}}</span></div>
+            <div>Class: <span>{{student.Std}}</span></div>
+            <div>Father name: <span>{{student.Father}}</span></div>
+            <div>Mother name: <span>{{student.Mother}}</span></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Code</th>
+                        <th>Marks Obtained</th>
+                        <th>Total Marks</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mathematics</td>
+                        <td>MTH101</td>
+                        <td>{{mark.Mathematics}}</td>
+                        <td>{{mark.target}}</td>
+                        <td>
+                            {% if mark.Mathematics > mark.score %}
+                            Pass
+                            {% else %}
+                            Fail
+                            {% endif %}
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Science</td>
+                        <td>SCI201</td>
+                        <td>{{mark.Science}}</td>
+                        <td>{{mark.target}}</td>
+                        <td>
+                            {% if mark.Science > mark.score %}
+                            Pass
+                            {% else %}
+                            Fail
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>ENG301</td>
+                        <td>{{mark.English}}</td>
+                        <td>{{mark.target}}</td>
+                        <td>
+                            {% if mark.English > mark.score %}
+                            Pass
+                            {% else %}
+                            Fail
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hindi</td>
+                        <td>HIN501</td>
+                        <td>{{mark.Hindi}}</td>
+                        <td>{{mark.target}}</td>
+                        <td>
+                            {% if mark.Hindi > mark.score %}
+                            Pass
+                            {% else %}
+                            Fail
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Marathi</td>
+                        <td>MAR401</td>
+                        <td>{{mark.Marathi}}</td>
+                        <td>{{mark.target}}</td>
+                        <td>
+                            {% if mark.Marathi > mark.score %}
+                            Pass
+                            {% else %}
+                            Fail
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Social Science</td>
+                        <td>SOC601</td>
+                        <td>{{mark.SocialScience}}</td>
+                        <td>{{mark.target}}</td>
+                        <td>
+                            {% if mark.SocialScience > mark.score %}
+                            Pass
+                            {% else %}
+                            Fail
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="std_chart" style="width: 100%; height: 400px;"></div>
+        </div>
+    </div>
+    {% if student.Fee_Status %}
+    <div class="row">
+        <div class="col-md-12 text-end my-3 me-2">
+            <a href="{% url 'marksheet' %}"><button class="btn btn-info">Generate Marksheet</button></a>
+        </div>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-md-12 text-end my-3 me-2 gmark">
+            <button class="btn btn-danger" disabled>Generate Marksheet</button>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<script>
+    anychart.onDocumentReady(function () {
+        // Get marks data from the context
+        let marksData = JSON.parse('{{ marks_data|escapejs }}');
+        
+        // Convert marks data into the format needed for the chart
+        let data = [
+            ["Mathematics", marksData.Mathematics],
+            ["Science", marksData.Science],
+            ["English", marksData.English],
+            ["Hindi", marksData.Hindi],
+            ["Marathi", marksData.Marathi],
+            ["Social Science", marksData.SocialScience]
+        ];
+
+        // Create a pie chart with the data
+        let chart = anychart.pie(data);
+
+        // Set the chart title
+        chart.title("Student Marks Chart");
+
+        // Set container id for the chart
+        chart.width("100%");
+        chart.height("100%");
+        chart.tooltip().format("{%value} Marks");
+        chart.container("std_chart");
+
+        // Initiate chart drawing
+        chart.draw();
+    });
+</script>
+{% else %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 mx-auto">
+            <p>Your Marks is not updated yet..</p>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
